@@ -1,9 +1,20 @@
 import './App.css';
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+} from 'react-router-dom';
+import AppHomePage from './AppHomePage';
+import AppQuotesPage from './AppQuotesPage';
 
 function App() {
   return (
-    <div className="App">
-    </div>
+    <BrowserRouter>
+    <Routes>
+      <Route path="/" element={<AppHomePage />} />
+      <Route path="/quotes/:id" element={<AppQuotesPage />} />
+    </Routes>
+    </BrowserRouter>
   );
 }
 
