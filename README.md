@@ -8,7 +8,7 @@ This is an MVP collaborative project created for a Full Stack Development Course
 
 ## Full Stack Arquitecture Drawing
 
-<img width="613" alt=" fs architecture drawing" src="https://iili.io/HMtqNne.png">
+<img width="700" alt=" fs architecture drawing" src="https://iili.io/HMtqNne.png">
 
 ## Setup
 
