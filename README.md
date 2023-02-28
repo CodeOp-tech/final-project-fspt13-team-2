@@ -1,14 +1,16 @@
 # fspt13-team-2 
 
-This is an MVP collaborative project created for a Full Stack Development Course. It's an online Shakespeare oracle where people can turn to for existencial guidance. 
+This is an MVP collaborative project created for a Full Stack Development Course. 
 
 ## User Flow
 
 ## Data Schema
 
-## Full Stack Arquitecture Drawing
+<img width="700" alt="data schema" src="https://iili.io/HVn2eCF.png">
 
-<img width="700" alt=" fs architecture drawing" src="https://iili.io/HMtqNne.png">
+## Full Stack Arquitecture Diagram
+
+<img width="700" alt="fs architecture drawing" src="https://iili.io/HMtqNne.png">
 
 ## Setup
 
