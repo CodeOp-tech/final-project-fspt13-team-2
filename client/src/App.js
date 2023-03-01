@@ -4,15 +4,17 @@ import {
   Routes,
   Route,
 } from 'react-router-dom';
-import AppHomePage from './AppHomePage';
-import AppQuotesPage from './AppQuotesPage';
+import AppHomePage from './HomePage';
+import UsersLoginPage from './UsersLoginPage';
+import UsersProfilePage from './UsersProfilePage';
 
 function App() {
   return (
     <BrowserRouter>
     <Routes>
       <Route path="/" element={<AppHomePage />} />
-      <Route path="/:id" element={<AppQuotesPage />} />
+      <Route path="/users" element={<UsersLoginPage />} />
+      <Route path="/users/:id" element={<UsersProfilePage />} />
     </Routes>
     </BrowserRouter>
   );
