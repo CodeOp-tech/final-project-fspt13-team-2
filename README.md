@@ -4,6 +4,12 @@ This is an MVP collaborative project created for a Full Stack Development Course
 
 ## User Flow
 
+<img width="700" alt="home page" src="https://iili.io/HVTiQpt.png">
+
+<img width="700" alt="users login page" src="https://iili.io/HVTipCG.png">
+
+<img width="700" alt="users profile page" src="https://iili.io/HVTsfje.png">
+
 ## Data Schema
 
 <img width="700" alt="data schema" src="https://iili.io/HVn2eCF.png">
