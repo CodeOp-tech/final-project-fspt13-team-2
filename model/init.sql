@@ -1,10 +1,33 @@
-DROP TABLE if exists books;
+DROP TABLE if exists posts;
+DROP TABLE if exists categories;
+DROP TABLE if exists users;
+DROP TABLE if exists votes;
 
-CREATE TABLE books (
+CREATE TABLE posts (
   id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
-  title VARCHAR(300) NOT NULL,
-  author VARCHAR(50) NOT NULL,
-  category VARCHAR(50) NOT NULL,
-  description LONGTEXT NOT NULL,
-  image VARCHAR(300) NOT NULL
+  user_id INT NOT NULL,
+  title VARCHAR(50) NOT NULL,
+  content TEXT(255) NOT NULL,
+  created_date DATETIME NOT NULL
 );
+
+CREATE TABLE categories (
+  id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+  name VARCHAR(50) NOT NULL
+);
+
+CREATE TABLE users (
+  id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+  nick VARCHAR(25) NOT NULL,
+  email VARCHAR(89) NOT NULL,
+  password VARCHAR(50) NOT NULL
+);
+
+CREATE TABLE votes (
+  id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+  post_id INT NOT NULL,
+  name VARCHAR(50) NOT NULL
+);
+
+
+
