@@ -1,7 +1,9 @@
+import Form from'./components/Form.js';
+
 export default function HomePage() {
     return (
         <div>
-            <h1>Hello World</h1>
+            < Form />
         </div>
     )
 }
