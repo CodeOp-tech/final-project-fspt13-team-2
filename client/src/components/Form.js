@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import './Form.css';
 
 function Form({ onAdd }) {
   // Declare state variables for the comment, category, and submitted comment
