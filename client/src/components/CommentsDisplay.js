@@ -1,12 +1,15 @@
+import CommentsCard from "./CommentsCard"
+
 export default function CommentsDisplay({ comments }) {
     return (
         <div>
-        {/* Map through the comments array and render each comment */}
+        {/* Map through the comments array and render each comment card*/}
         {comments.map((comment, index) => (
-          <div key={index} className="comment-container">
-            <p>{comment.comment}</p>
-            <p>Submitted at: {new Date(comment.timestamp).toLocaleString()}</p>
-          </div>
+          <CommentsCard 
+          key={index} 
+          comment={comment.comment} 
+          timestamp={comment.timestamp}
+          /> 
         ))}
       </div>
     )
