@@ -12,7 +12,7 @@ This is an MVP collaborative project created for a Full Stack Development Course
 
 ## Data Schema
 
-<img width="700" alt="data schema" src="https://github.com/CodeOp-tech/fspt13-team-2/blob/main/dbs_uror.jpg?raw=true">
+<img width="700" alt="data schema" src="https://github.com/CodeOp-tech/fspt13-team-2/blob/main/DBS_UROR.jpg?raw=true">
 
 ## Full Stack Arquitecture Diagram
 
