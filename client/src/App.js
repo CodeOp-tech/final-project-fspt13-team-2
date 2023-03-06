@@ -4,17 +4,22 @@ import {
   Routes,
   Route,
 } from 'react-router-dom';
-import AppHomePage from './HomePage';
+import HomePage from './HomePage';
 import UsersLoginPage from './UsersLoginPage';
-import UsersProfilePage from './UsersProfilePage';
+import UsersPrivatePage from './UsersPrivatePage';
+import PrivateRoute from './PrivateRoute';
 
 function App() {
   return (
     <BrowserRouter>
     <Routes>
-      <Route path="/" element={<AppHomePage />} />
-      <Route path="/users" element={<UsersLoginPage />} />
-      <Route path="/users/:id" element={<UsersProfilePage />} />
+      <Route path="/" element={<HomePage />} />
+      <Route path="/login" element={<UsersLoginPage />} />
+      <Route path="/private" element={
+      <PrivateRoute>
+        <UsersPrivatePage />
+      </PrivateRoute>
+      } />
     </Routes>
     </BrowserRouter>
   );
