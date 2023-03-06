@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
 
 function Form({ onAdd }) {
-  // Declare state variables for the comment, category, and submitted comment
+  // Declare state variables for the comment 
   const [comment, setComment] = useState('');
   
   // Define a function to handle form submission
   const handleSubmit = (event) => {
     // Prevent the default form submission behavior
     event.preventDefault();
-    // Set the submitted comment to an object containing the comment, category, and a timestamp
+    // Set the submitted comment to an object containing the comment and a timestamp
     onAdd({ comment, timestamp: Date.now() });
     // Clear the comment and category values
     setComment('');
