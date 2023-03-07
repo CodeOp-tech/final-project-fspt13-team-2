@@ -1,16 +1,10 @@
 import React, { useState } from 'react';
+import { v4 as uuid } from 'uuid';
 
 function Form({ onAdd }) {
   // Declare state variables for the comment 
   const [comment, setComment] = useState('');
   const [imageUrl, setImageUrl] = useState('');
-
-  // Declare function that generates unique ID for each new comment
-  const id = () => {
-    const dateString = Date.now().toString(36);
-    const randomness = Math.random().toString(36).substr(2);
-    return dateString + randomness;
-  };
   
   // Define a function to handle form submission
   const handleSubmit = (event) => {
@@ -18,7 +12,7 @@ function Form({ onAdd }) {
     event.preventDefault();
     // Set the submitted comment to an object containing the comment elements
     onAdd({ 
-      id: id(),
+      id: uuid(),
       comment, 
       timestamp: Date.now(), 
       imageUrl,
