@@ -3,15 +3,31 @@ import React, { useState } from 'react';
 function Form({ onAdd }) {
   // Declare state variables for the comment 
   const [comment, setComment] = useState('');
+  const [imageUrl, setImageUrl] = useState('');
+
+  // Declare function that generates unique ID for each new comment
+  const id = () => {
+    const dateString = Date.now().toString(36);
+    const randomness = Math.random().toString(36).substr(2);
+    return dateString + randomness;
+  };
   
   // Define a function to handle form submission
   const handleSubmit = (event) => {
     // Prevent the default form submission behavior
     event.preventDefault();
-    // Set the submitted comment to an object containing the comment and a timestamp
-    onAdd({ comment, timestamp: Date.now() });
+    // Set the submitted comment to an object containing the comment elements
+    onAdd({ 
+      id: id(),
+      comment, 
+      timestamp: Date.now(), 
+      imageUrl,
+      wowCount: 0,
+      mehCount: 0
+    });
     // Clear the comment and category values
     setComment('');
+    setImageUrl('');
   };
 
   // Define a function to handle changes to the comment input
@@ -28,6 +44,10 @@ function Form({ onAdd }) {
         <label className="comment-label">
           Your comment:
           <textarea className="comment-textarea" value={comment} onChange={handleCommentChange} />
+        </label>
+        <label className="comment-label">
+          Add an image URL:
+          <input type="text" value={imageUrl} onChange={(e) => setImageUrl(e.target.value)} />
         </label>
         {/* Create a button to submit the form */}
         <button className="comment-button" type="submit">Add a new topic</button>

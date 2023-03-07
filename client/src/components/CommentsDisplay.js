@@ -1,14 +1,17 @@
 import CommentsCard from "./CommentsCard"
 
-export default function CommentsDisplay({ comments }) {
+export default function CommentsDisplay({ comments, onWow, onMeh }) {
     return (
         <div>
         {/* Map through the comments array and render each comment card*/}
-        {comments.map((comment, index) => (
+        {comments.map((comment) => (
           <CommentsCard 
-          key={index} 
+          key={comment.id} 
           comment={comment.comment} 
           timestamp={comment.timestamp}
+          onWow={() => onWow(comment)}
+          onMeh={() => onMeh(comment)}
+          imageUrl={comment.imageUrl}
           /> 
         ))}
       </div>
