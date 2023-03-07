@@ -48,7 +48,7 @@ function Form({ onAdd }) {
       </form>
       </div>
   );
-      };
+};
 
 
 export default Form;
