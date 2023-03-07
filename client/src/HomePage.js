@@ -35,7 +35,7 @@ export default function HomePage() {
       };
 
     const handleWowClick = (comment) => {
-      setComments(comments.map((x) => {
+      setComments(comments => comments.map((x) => {
         if (x.id === comment.id)
           return {
             ...x,
@@ -47,7 +47,8 @@ export default function HomePage() {
   };
         
     const handleMehClick = (comment) => {
-      setComments(comments.map((x) => {
+      console.log("here", comment)
+      setComments(comments => comments.map((x) => {
         if (x.id === comment.id)
           return {
             ...x,
