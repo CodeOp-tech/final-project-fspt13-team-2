@@ -12,3 +12,18 @@ router.get('/', function(req, res, next) {
 });
 
 module.exports = router;
+
+/* POST posts */
+
+router.post("/posts", function (req, res) {
+  const body = req.body
+  const content = req.body.content
+  const image = req.body.image
+
+  try {
+    await db(`INSERT INTO posts (content, image) values ('${content}', ${image})`)
+    res.send(201)
+  } catch(error) {
+    res.status(500).send(error)
+  }
+});
