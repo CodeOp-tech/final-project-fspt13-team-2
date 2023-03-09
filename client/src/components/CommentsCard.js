@@ -4,8 +4,8 @@ export default function CommentsCard({ comment, wowCount, mehCount, imageUrl, ti
             <p>{comment}</p>
             {imageUrl && <img src={imageUrl} alt="comment-image" />}
             <p>Submitted at: {new Date(timestamp).toLocaleString()}</p>
-            <p>Wows {wowCount} </p>
-            <p>Mehs {mehCount}</p>
+            <p>{wowCount} Wows</p>
+            <p>{mehCount} Mehs</p>
 
             <div className="vote-buttons">
                 <button className="btn btn-sm btn-outline btn-secondary" onClick={onWow}>Wow</button>
