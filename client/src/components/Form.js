@@ -35,13 +35,18 @@ function Form({ onAdd }) {
     <div className="comment-form-container">
       {/* Create a form element with a textarea for the comment and an input for the category */}
       <form className="comment-form" onSubmit={handleSubmit}>
-        <label className="comment-label">
+        <label className="label-text">
           Your comment:
-          <textarea className="comment-textarea" value={comment} onChange={handleCommentChange} />
+          <textarea className="textarea textarea-bordered" placeholder="Leave a comment" value={comment} onChange={handleCommentChange} />
         </label>
-        <label className="comment-label">
+        <label className="label-text">
           Add an image URL:
-          <input type="text" value={imageUrl} onChange={(e) => setImageUrl(e.target.value)} />
+          <input 
+          className="input input-bordered input-sm w-full max-w-xs"
+          placeholder="http://example.com"
+          type="text" 
+          value={imageUrl} onChange={(e) => setImageUrl(e.target.value)} 
+          />
         </label>
         {/* Create a button to submit the form */}
         <button className="comment-button" type="submit">Add a new topic</button>
