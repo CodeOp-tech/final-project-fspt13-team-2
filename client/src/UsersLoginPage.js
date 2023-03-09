@@ -5,11 +5,11 @@ const HOSTNAME = "http://localhost:5050"
 
 export default function UsersLoginPage() {
   const [credentials, setCredentials] = useState({
-    username: "test",
-    password: "test"
+    nick: "",
+    password: ""
   })
 
-  const {username, password} = credentials;
+  const {nick, password} = credentials;
 
   const handleChange = (e) => {
     const {name, value} = e.target;
@@ -51,27 +51,31 @@ export default function UsersLoginPage() {
 
     return (
       <div>
-        <div>
+        <div className="container mx-auto px-10">
+
           <input
-          value={username}
+          value={nick}
           onChange={handleChange}
-          name="username"
+          name="nick"
           type="text"
-          className="form-control mb-2"
+          className="form-control mb-2 input input-sm input-bordered w-full max-w-xs"
           />
           <input
           value={password}
           onChange={handleChange}
           name="password"
           type="password"
-          className="form-control mb-2"
+          className="form-control mb-2 input input-sm input-bordered w-full max-w-xs"
           />
-          <button className="btn btn-secondary" onClick={login}>
+
+          <div className="btn-group">
+          <button className="btn btn-primary" onClick={login}>
             Log in
           </button>
-          <button className="btn btn-secondary" onClick={logout}>
+          <button className="btn btn-primary" onClick={logout}>
             Log out
           </button>
+        </div>
         </div>
 
         <div className="text-center p-4">

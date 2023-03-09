@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Link } from "react-router-dom";
 import Form from './components/Form.js';
 import CommentsDisplay from './components/CommentsDisplay';
 
@@ -63,6 +64,12 @@ export default function HomePage() {
         <>
         <div>
             <Form onAdd={handleAddComments}/>
+        </div>
+
+        <div className="text-center p-4">
+          <h3>Already a user?
+            <span><Link className="link link-primary link-hover" to="/login"> Login</Link></span>
+          </h3>
         </div>
         
         <div>
