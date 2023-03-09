@@ -21,8 +21,8 @@ This is an MVP collaborative project created for a Full Stack Development Course
 ## Setup
 
 * Clone the repository into your local server.
-* On your computer terminal, `cd`into the project folder and run the following commands: `yarn install`, then `yarn start`. 
-* Then, `cd` into the 'client' folder and run the same commands: `yarn install`, then `yarn start`. 
+* On your computer terminal, `cd`into the project folder and run the following commands: `yarn `, then `yarn start`. 
+* Then, `cd` into the 'client' folder and run the same commands: `yarn`, then `yarn start`. 
 
 ## Notes
 
