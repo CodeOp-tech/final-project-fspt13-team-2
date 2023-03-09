@@ -18,11 +18,16 @@ This is an MVP collaborative project created for a Full Stack Development Course
 
 <img width="700" alt="fs architecture drawing" src="https://iili.io/HMtqNne.png">
 
-## Setup
+## Dependencies
 
 * Clone the repository into your local server.
-* On your computer terminal, `cd`into the project folder and run the following commands: `yarn `, then `yarn start`. 
-* Then, `cd` into the 'client' folder and run the same commands: `yarn`, then `yarn start`. 
+* On your computer terinal, run `yarn` in project directory. This will install server project dependencies such as `express`.
+* `cd client` and run `yarn`. This will install client dependencies (React, Tailwind).
+
+## Development
+
+* Run `yarn start` in project directory to start backend server on port 5050.
+* `cd client` and run `yarn start` to start client server in development mode with hot reloading on port 3000.
 
 ## Notes
 
