@@ -1,6 +1,8 @@
 import { useState } from "react";
 import axios from 'axios';
 
+const HOSTNAME = "http://localhost:5050"
+
 export default function UsersLoginPage() {
   const [credentials, setCredentials] = useState({
     username: "test",
@@ -16,7 +18,7 @@ export default function UsersLoginPage() {
 
   const login = async () => {
     try {
-      const { data } = await axios("users/login", {
+      const { data } = await axios(`${HOSTNAME}/users/login`, {
         method: "POST",
         data: credentials
       });
@@ -33,9 +35,50 @@ export default function UsersLoginPage() {
     localStorage.removeItem("token");
   }
 
+  const requestData = async () => {
+    try {
+      const { data } = await axios(`${HOSTNAME}/users/profile`, {
+        headers: {
+          authorization: "Bearer " + localStorage.getItem("token"),
+        },
+    });
+
+    console.log(data.message);
+  } catch (error) {
+    console.log(error)
+  }
+};
+
     return (
       <div>
-        <h1>Log in</h1>
+        <div>
+          <input
+          value={username}
+          onChange={handleChange}
+          name="username"
+          type="text"
+          className="form-control mb-2"
+          />
+          <input
+          value={password}
+          onChange={handleChange}
+          name="password"
+          type="password"
+          className="form-control mb-2"
+          />
+          <button className="btn btn-secondary" onClick={login}>
+            Log in
+          </button>
+          <button className="btn btn-secondary" onClick={logout}>
+            Log out
+          </button>
+        </div>
+
+        <div className="text-center p-4">
+          <button className="btn btn-outline secondary" onClick={requestData}>
+            Request protected data
+          </button>
+        </div>
       </div>
     )
 }
