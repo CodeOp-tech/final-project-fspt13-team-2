@@ -32,10 +32,6 @@ export default function UsersLoginPage() {
     }
   }
 
-  const logout = () => {
-    localStorage.removeItem("token");
-  }
-
     return (
       <div>
         <div className="container mx-auto px-10">
@@ -58,12 +54,9 @@ export default function UsersLoginPage() {
           className="form-control mb-2 input input-sm input-bordered w-full max-w-xs"
           />
 
-          <div className="btn-group">
+          <div>
           <button className="btn btn-primary" onClick={login}>
             Sign in
-          </button>
-          <button className="btn btn-primary" onClick={logout}>
-            Sign out
           </button>
         </div>
         </div>
