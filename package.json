@@ -10,6 +10,7 @@
     "axios": "0.24.0",
     "bcrypt": "^5.1.0",
     "cookie-parser": "~1.4.4",
+    "cors": "^2.8.5",
     "debug": "~2.6.9",
     "dotenv": "^16.0.3",
     "express": "~4.16.1",
@@ -24,6 +25,5 @@
     "react-router-dom": "^6.8.1",
     "sort-by": "^1.2.0",
     "uuidv4": "^6.2.13"
-  },
-  "devDependencies": {}
+  }
 }

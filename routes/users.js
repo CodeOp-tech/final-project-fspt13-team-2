@@ -16,13 +16,26 @@ router.get("/", function(req, res, next) {
 
 // POST to register new users 
 router.post("/register", async (req, res) => {
-  const { nick, password } = req.body; 
+  const { email, nick, password } = req.body;
+
+  if (!email){
+    res.status(400).send({ message: "Email address is required"});
+    return;
+  }
+  if (!nick){
+    res.status(400).send({ message: "Nickname is required"});
+    return;
+  }
+  if (!password){
+    res.status(400).send({ message: "Password is required"});
+    return;
+  }
 
   try {
     const hash = await bcrypt.hash(password, saltRounds);
     
     await db(
-      `INSERT INTO users (nick, password) VALUES ("${nick}", "${hash})`
+      `INSERT INTO users (nick, email, password) VALUES ('${nick}', '${email}', '${hash}')`
     );
 
     res.send({ message : "Register successfull"});
@@ -33,11 +46,21 @@ router.post("/register", async (req, res) => {
 
 // POST to login existing users
 router.post("/login", async (req, res) => {
-  const { nick, password } = req.body; 
+  const { email, password } = req.body; 
+
+  if (!email){
+    res.status(400).send({ message: "Email address is required"});
+    return;
+  }
+
+  if (!password){
+    res.status(400).send({ message: "Password is required"});
+    return;
+  }  
 
   try {
     const results = await db(
-      `SELECT * FROM users WHERE nick = "${nick}"`
+      `SELECT * FROM users WHERE email = "${email}"`
     );
 
     const user = results.data[0];
@@ -48,10 +71,10 @@ router.post("/login", async (req, res) => {
 
       if (!correctPassword) throw new Error("Incorrect password");
 
-      var token = jwt.sign({ user_id}, supersecret);
-      res.send({ message: "Login successful, here is your token", token })
+      // var token = jwt.sign({ user_id}, supersecret);
+      res.send({ message: "Login successful, here is your token", user:{id:user.id} })
     } else {
-      res.status(404).send();
+      res.status(404).send({message: "User not found"});
 
     }
   } catch (err) {
@@ -59,9 +82,11 @@ router.post("/login", async (req, res) => {
   };
 });
 
-//GET one user profile
-router.get("/profile", userShouldBeLoggedIn, (req, res) => {
-  res.send({
-    message: "Here is the protected data for user" + req.user_id,
-  });
-});
+// //GET one user profile
+// router.get("/profile", userShouldBeLoggedIn, (req, res) => {
+//   res.send({
+//     message: "Here is the protected data for user" + req.user_id,
+//   });
+// });
+
+module.exports = router;

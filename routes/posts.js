@@ -11,4 +11,31 @@ router.get('/', function(req, res, next) {
     .catch(err => res.status(500).send(err));
 });
 
+/* CREATE new post. */
+router.post("/create", async (req, res) => {
+  const {user_id, content=null, image=null} = req.body;
+
+  if (!user_id){
+    res.status(400).send({ message: "user_id is missing"});
+    return;
+  }
+
+  if (!content && !image){
+    res.status(400).send({ message: "content or image is missing"});
+    return;
+  }
+
+
+
+  try {
+    const txtcontent = content ? `'${content}'`: null; 
+    const txtimage = image ? `'${image}'`: null;
+
+    await db(`INSERT INTO posts (user_id, content, image) VALUES (${user_id}, ${txtcontent}, ${txtimage})`);
+    res.send({ message: "New post created"});
+  } catch(error) {
+    res.status(500).send(error)
+  }
+});
+
 module.exports = router;
