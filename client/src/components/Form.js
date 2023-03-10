@@ -40,7 +40,7 @@ function Form({ onAdd }) {
       {/* Create a form element with a textarea for the comment and an input for the category */}
       {formSubmitionStatus === 'notSubmitted' && 
       <form className="max-w-2xl" onSubmit={handleSubmit}>
-        <div class="flex flex-wrap border shadow rounded-lg p-16 dark:bg-gray-600">
+        <div class="flex flex-wrap border shadow-xl selection:rounded-lg p-16 dark:bg-gray-600">
         <div class="flex flex-col gap-2 w-full border-gray-400">
 
         <label className="label-text">
