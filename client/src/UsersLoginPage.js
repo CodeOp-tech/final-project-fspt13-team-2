@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import axios from 'axios';
 
 const HOSTNAME = "http://localhost:5050"
@@ -35,31 +36,20 @@ export default function UsersLoginPage() {
     localStorage.removeItem("token");
   }
 
-  const requestData = async () => {
-    try {
-      const { data } = await axios(`${HOSTNAME}/users/profile`, {
-        headers: {
-          authorization: "Bearer " + localStorage.getItem("token"),
-        },
-    });
-
-    console.log(data.message);
-  } catch (error) {
-    console.log(error)
-  }
-};
-
     return (
       <div>
         <div className="container mx-auto px-10">
 
-          <input
+        <label className="label-text">username</label>
+        <input
           value={nick}
           onChange={handleChange}
           name="nick"
           type="text"
           className="form-control mb-2 input input-sm input-bordered w-full max-w-xs"
           />
+
+         <label className="label-text">password</label>
           <input
           value={password}
           onChange={handleChange}
@@ -70,18 +60,19 @@ export default function UsersLoginPage() {
 
           <div className="btn-group">
           <button className="btn btn-primary" onClick={login}>
-            Log in
+            Sign in
           </button>
           <button className="btn btn-primary" onClick={logout}>
-            Log out
+            Sign out
           </button>
         </div>
         </div>
 
         <div className="text-center p-4">
-          <button className="btn btn-outline secondary" onClick={requestData}>
-            Request protected data
-          </button>
+          <p>
+            Don't have an account? 
+            <Link className="link link-primary link-hover" to='/register'> Create one</Link>
+          </p>
         </div>
       </div>
     )

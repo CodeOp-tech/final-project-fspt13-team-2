@@ -65,3 +65,5 @@ router.get("/profile", userShouldBeLoggedIn, (req, res) => {
     message: "Here is the protected data for user" + req.user_id,
   });
 });
+
+module.exports = router
