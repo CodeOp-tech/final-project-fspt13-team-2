@@ -1,6 +1,5 @@
 import { useState } from 'react';
-import { Link } from "react-router-dom";
-import Form from './components/Form.js';
+import NavBar from './components/NavBar';
 import CommentsDisplay from './components/CommentsDisplay';
 
 export default function HomePage() {
@@ -31,10 +30,6 @@ export default function HomePage() {
         },
     ]);
 
-    const handleAddComments = (newComment) => {
-        setComments((state) => [...state, newComment]);
-      };
-
     const handleWowClick = (comment) => {
       setComments(comments => comments.map((x) => {
         if (x.id === comment.id)
@@ -62,14 +57,9 @@ export default function HomePage() {
 
     return (
         <>
-        <div>
-            <Form onAdd={handleAddComments}/>
-        </div>
 
-        <div className="text-center p-4">
-          <h3>Already a user?
-            <span><Link className="link link-primary link-hover" to="/login"> Login</Link></span>
-          </h3>
+        <div>
+        <NavBar/>
         </div>
         
         <div>
