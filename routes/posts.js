@@ -38,4 +38,14 @@ router.post("/create", async (req, res) => {
   }
 });
 
+/* COUNT number of wow for each post. */
+router.get('/wow', function(req, res, next) {
+  db("SELECT posts.id, COUNT(votes.wow) AS wow_count FROM posts LEFT JOIN votes ON posts.id = votes.post_id WHERE votes.wow = true GROUP BY posts.id;")
+    .then(results => {
+      res.send(results.data);
+    })
+    .catch(err => res.status(500).send(err));
+});
+
+
 module.exports = router;
