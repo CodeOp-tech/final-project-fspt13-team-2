@@ -10,10 +10,13 @@ import UsersPrivatePage from './UsersPrivatePage';
 import PrivateRoute from './PrivateRoute';
 import UsersRegisterPage from './UsersRegisterPage';
 import CommentCreationPage from './CommentCreationPage';
+import { Theme } from 'react-daisyui';
 
 function App() {
   return (
-    <div className="container mx-auto p-8 m-10">
+    <div className="container mx-auto p-8 m-10 bg-none">
+    <Theme dataTheme="cmyk">
+
     <BrowserRouter>
     <Routes>
       <Route path="/" element={<HomePage />} />
@@ -27,6 +30,8 @@ function App() {
       } />
     </Routes>
     </BrowserRouter>
+
+    </Theme>
     </div>
   );
 }
