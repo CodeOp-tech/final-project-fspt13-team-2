@@ -7,7 +7,7 @@ require("dotenv").config();
 var bcrypt = require("bcrypt");
 const saltRounds = 10;
 
-const supersecret = process.env.SUPER_SCERET;
+const supersecret = process.env.SUPER_SECRET;
 
 // GET users listing 
 router.get("/", function(req, res, next) {
@@ -38,7 +38,7 @@ router.post("/register", async (req, res) => {
       `INSERT INTO users (nick, email, password) VALUES ('${nick}', '${email}', '${hash}')`
     );
 
-    res.send({ message : "Register successfull"});
+    res.send({ message : "Register successful"});
   } catch (err) {
     res.status(400).send({ message: err.message});
   }
@@ -71,8 +71,8 @@ router.post("/login", async (req, res) => {
 
       if (!correctPassword) throw new Error("Incorrect password");
 
-      // var token = jwt.sign({ user_id}, supersecret);
-      res.send({ message: "Login successful, here is your token", user:{id:user.id} })
+      var token = jwt.sign({ user_id}, supersecret);
+      res.send({ message: "Login successful, here is your token", user:{id:user.id}, token })
     } else {
       res.status(404).send({message: "User not found"});
 
@@ -82,11 +82,11 @@ router.post("/login", async (req, res) => {
   };
 });
 
-// //GET one user profile
-// router.get("/profile", userShouldBeLoggedIn, (req, res) => {
-//   res.send({
-//     message: "Here is the protected data for user" + req.user_id,
-//   });
-// });
+//GET one user profile
+router.get("/profile", userShouldBeLoggedIn, (req, res) => {
+  res.send({
+    message: "Here is the protected data for user" + req.user_id,
+  });
+});
 
 module.exports = router;
