@@ -46,7 +46,7 @@ function Form({ onAdd }) {
         <label className="label-text">
           Your comment:
          </label>
-        <textarea className='w-full py-8 border border-slate-200 rounded-lg px-3 focus:outline-none focus:border-slate-500 hover:shadow dark:bg-gray-600 dark:text-gray-100' placeholder="Leave a comment" value={comment} onChange={handleCommentChange} />
+        <textarea className='w-full resize-y py-2 border rounded-lg px-3 dark:text-gray-100' placeholder="Leave a comment" value={comment} onChange={handleCommentChange} />
         
 
         <label className="label-text">
@@ -67,14 +67,25 @@ function Form({ onAdd }) {
        }
 
       {formSubmitionStatus === 'submitted' && (
-          <div className="max-w-2xl" >
-             <h2>Your comment has been created!</h2>
-              <Link className="link link-primary link-hover" to="/">
-                 Click here
-              </Link>
+        <>
+          <div className="alert shadow-lg">
+            <div>
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" className="stroke-info flex-shrink-0 w-6 h-6"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+             <div>
+             <h3 className="font-bold">Comment added succesfully!</h3>
           </div>
-        )}
+         </div>
+
+        <div className="flex-none">
+          <button className="btn btn-sm">
+            <Link className="link link-primary link-hover" to="/">
+                 See
+            </Link></button>
         </div>
+      </div>
+      </> 
+    )}
+    </div>
   );
 };
 
