@@ -59,7 +59,6 @@ router.post("/create", async (req, res) => {
   }
 });
 
-/* update a vote. */
 
 
 module.exports = router;
