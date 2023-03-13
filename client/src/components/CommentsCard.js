@@ -1,16 +1,21 @@
 export default function CommentsCard({ comment, wowCount, mehCount, imageUrl, timestamp, onWow, onMeh }) {
     return (
-        <div className="comment-container">
+        
+        <div className="card card-body w-300 bg-base-100 shadow-xl p-6 my-8">
             <p>{comment}</p>
             {imageUrl && <img src={imageUrl} alt="comment-image" />}
-            <p>Submitted at: {new Date(timestamp).toLocaleString()}</p>
-            <p>Wows {wowCount} </p>
-            <p>Mehs {mehCount}</p>
+            <p className="label-text mt-2">Submitted at: {new Date(timestamp).toLocaleString()}</p>
 
-            <div className="vote-buttons">
-                <button className="btn btn-sm btn-outline btn-secondary" onClick={onWow}>Wow</button>
-                <button className="btn btn-sm btn-outline" onClick={onMeh}>Meh</button>
+            <div className="card-actions justify-end">
+                <button className="btn gap-2" onClick={onWow}>
+                    Wow
+                    <div className="badge badge-secondary">{wowCount}</div>
+                </button>
+                <button className="btn gap-2" onClick={onMeh}>
+                    Meh
+                    <div className="badge badge-secondary">{mehCount}</div>
+                </button>
             </div>
         </div>
-        )
+    )
 }

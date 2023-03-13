@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import Form from './components/Form.js';
+import NavBar from './components/NavBar';
 import CommentsDisplay from './components/CommentsDisplay';
 import HeroHeader from './components/HeroHeader.js';
 
@@ -31,10 +31,6 @@ export default function HomePage() {
         },
     ]);
 
-    const handleAddComments = (newComment) => {
-        setComments((state) => [...state, newComment]);
-      };
-
     const handleWowClick = (comment) => {
       setComments(comments => comments.map((x) => {
         if (x.id === comment.id)
@@ -65,8 +61,9 @@ export default function HomePage() {
         <div>
             <HeroHeader/>
         </div>
+
         <div>
-            <Form onAdd={handleAddComments}/>
+            <NavBar/>
         </div>
         
         <div>
