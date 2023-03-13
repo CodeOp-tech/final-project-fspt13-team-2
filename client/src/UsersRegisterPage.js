@@ -10,7 +10,7 @@ export default function UsersRegisterPage() {
         password: ""
       })
     
-      const {username, email, password} = credentials;
+      const {nick, email, password} = credentials;
     
       const handleChange = (e) => {
         const {name, value} = e.target;
@@ -38,7 +38,7 @@ export default function UsersRegisterPage() {
 
            <label className="label-text">username</label>
            <input
-            value={username}
+            value={nick}
             onChange={handleChange}
             name="username"
             type="text"

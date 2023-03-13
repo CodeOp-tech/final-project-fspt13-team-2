@@ -6,11 +6,11 @@ const HOSTNAME = "http://localhost:5050"
 
 export default function UsersLoginPage() {
   const [credentials, setCredentials] = useState({
-    username: "",
+    email: "",
     password: ""
   })
 
-  const {username, password} = credentials;
+  const {email, password} = credentials;
 
   const handleChange = (e) => {
     const {name, value} = e.target;
@@ -36,11 +36,11 @@ export default function UsersLoginPage() {
       <div>
         <div className="container mx-auto px-10">
 
-        <label className="label-text">username</label>
+        <label className="label-text">e-mail</label>
         <input
-          value={username}
+          value={email}
           onChange={handleChange}
-          name="username"
+          name="email"
           type="text"
           className="form-control mb-2 input input-sm input-bordered w-full max-w-xs"
           />
