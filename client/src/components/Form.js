@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { v4 as uuid } from 'uuid';
 
+
 function Form({ onAdd }) {
   // Declare state variables for the comment 
   const [comment, setComment] = useState('');
@@ -31,7 +32,6 @@ function Form({ onAdd }) {
   };
 
   // Render the CommentForm component
-  return (
     <div className="comment-form-container">
       {/* Create a form element with a textarea for the comment and an input for the category */}
       <form className="comment-form" onSubmit={handleSubmit}>
@@ -47,7 +47,7 @@ function Form({ onAdd }) {
         <button className="comment-button" type="submit">Add a new topic</button>
       </form>
       </div>
-  );
+
 };
 
 
