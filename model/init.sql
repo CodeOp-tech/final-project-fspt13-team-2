@@ -21,7 +21,7 @@ CREATE TABLE users (
   password VARCHAR(50) NOT NULL
 );
 
-INSERT INTO users (nick, email, password) VALUES('john89', "johndoe@gmail.com", "secretpassword");
+INSERT INTO users (username, email, password) VALUES("john89", "johndoe@gmail.com", "secretpassword");
 
 
 CREATE TABLE votes (
