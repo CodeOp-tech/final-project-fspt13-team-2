@@ -79,7 +79,7 @@ function Form({ onAdd }) {
         <div className="flex-none">
           <button className="btn btn-sm">
             <Link className="link link-primary link-hover" to="/">
-                 See
+                 SEE COMMENTS
             </Link></button>
         </div>
       </div>

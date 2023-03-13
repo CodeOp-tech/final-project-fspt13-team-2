@@ -5,12 +5,12 @@ const HOSTNAME = "http://localhost:5050"
 
 export default function UsersRegisterPage() {
     const [credentials, setCredentials] = useState({
+        username: "",
         email: "",
-        nick: "",
         password: ""
       })
     
-      const {email, nick, password} = credentials;
+      const {username, email, password} = credentials;
     
       const handleChange = (e) => {
         const {name, value} = e.target;
@@ -36,21 +36,21 @@ export default function UsersRegisterPage() {
         <div>
           <div className="container mx-auto px-10">
 
-           <label className="label-text">e-mail</label>
+           <label className="label-text">username</label>
            <input
-            value={email}
+            value={username}
             onChange={handleChange}
-            name="email"
+            name="username"
             type="text"
             placeholder=""
             className="form-control mb-2 input input-sm input-bordered w-full max-w-xs"
             /> 
 
-            <label className="label-text">username</label>
+            <label className="label-text">e-mail</label>
             <input
-            value={nick}
+            value={email}
             onChange={handleChange}
-            name="nick"
+            name="email"
             type="text"
             className="form-control mb-2 input input-sm input-bordered w-full max-w-xs"
             />
