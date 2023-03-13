@@ -5,7 +5,7 @@ const HOSTNAME = "http://localhost:5050"
 
 export default function UsersRegisterPage() {
     const [credentials, setCredentials] = useState({
-        username: "",
+        nick: "",
         email: "",
         password: ""
       })
@@ -40,7 +40,7 @@ export default function UsersRegisterPage() {
            <input
             value={nick}
             onChange={handleChange}
-            name="username"
+            name="nick"
             type="text"
             placeholder=""
             className="form-control mb-2 input input-sm input-bordered w-full max-w-xs"
