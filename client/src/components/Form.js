@@ -1,30 +1,42 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { v4 as uuid } from 'uuid';
+import jwt_decode from "jwt-decode";
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
+
+const HOSTNAME = "http://localhost:5050"
 
 function Form({ onAdd }) {
   // Declare state variables for the comment 
   const [comment, setComment] = useState('');
   const [imageUrl, setImageUrl] = useState('');
   const [formSubmitionStatus, setFormSubmitionStatus] = useState('notSubmitted')
-  
+  const navigate = useNavigate();
+
   // Define a function to handle form submission
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     // Prevent the default form submission behavior
     event.preventDefault();
-    // Set the submitted comment to an object containing the comment elements
-    onAdd({ 
-      id: uuid(),
-      comment, 
-      timestamp: Date.now(), 
-      imageUrl,
-      wowCount: 0,
-      mehCount: 0
+    const token = localStorage.getItem("token");
+    let user_id = null
+
+    if(token) {
+      const decoded = jwt_decode(token);
+      user_id = decoded.user_id
+    }
+
+    const postToCreate = {user_id:user_id, content:comment, image:imageUrl}
+
+    const { data } = await axios(`${HOSTNAME}/posts/create`, {
+      method: "POST",
+      data: postToCreate
     });
     setFormSubmitionStatus('submitted')
     // Clear the comment and category values
     setComment('');
     setImageUrl('');
+    navigate("/")
   };
 
   // Define a function to handle changes to the comment input
@@ -60,7 +72,7 @@ function Form({ onAdd }) {
           />
 
         {/* Create a button to submit the form */}
-        <button className="btn btn-primary" type="submit">Submit</button>
+        <button className="btn btn-primary" type="submit" disabled={!comment && !imageUrl}>Submit</button>
         </div>
         </div>
       </form>
