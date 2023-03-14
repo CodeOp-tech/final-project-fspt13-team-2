@@ -1,6 +1,12 @@
-import { useState } from 'react';
+
+import { useState, useEffect } from 'react';
+import Header from './components/Header';
 import CommentsDisplay from './components/CommentsDisplay';
 import HeroHeader from './components/HeroHeader.js';
+import axios from "axios";
+
+const HOSTNAME = "http://localhost:5050"
+
 
 export default function HomePage() {
     const [comments, setComments]= useState([]);
