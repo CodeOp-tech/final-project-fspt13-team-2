@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import Form from "./components/Form";
 import CommentsDisplay from './components/CommentsDisplay';
+import HeroHeader from './components/HeroHeader';
 
 export default function CommentCreationPage () {
     const [comments, setComments]= useState([]);
@@ -36,6 +37,11 @@ export default function CommentCreationPage () {
 
     return (
         <>
+
+        <div>
+            <HeroHeader/>
+        </div>
+        
 
        <div>
           <Form onAdd={handleAddComments}/>

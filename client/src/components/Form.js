@@ -47,7 +47,7 @@ function Form({ onAdd }) {
 
   // Render the CommentForm component
   return (
-    <div className="flex justify-center mt-50 px-8">
+    <div className="flex justify-center m-16">
 
       {/* Create a form element with a textarea for the comment and an input for the category */}
       {formSubmitionStatus === 'notSubmitted' && 

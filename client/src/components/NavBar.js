@@ -22,7 +22,15 @@ export default function NavBar (){
 
     return (
       <>
-      <div className="inline-flex flex-row p-8">
+      <div className="inline-flex p-8">
+
+
+          <div>
+            <a className="btn btn-ghost normal-case text-base">
+              <Link to="/login">
+                Log in
+              </Link>
+            </a>
 
           <div className="navbar bg-base-100">
             {loggedUser ? <div>{loggedUser.nick}</div> :
@@ -33,10 +41,16 @@ export default function NavBar (){
               </a>
             }
           </div>
-          <div className="navbar bg-base-100">
+
+          <div>
             <a className="btn btn-ghost normal-case text-base">
+
+              <Link to="/register">
+                Register
+
               <Link to={loggedUser ? "/add" : "/login"}>
                 Add a new topic
+
              </Link>
             
             </a>

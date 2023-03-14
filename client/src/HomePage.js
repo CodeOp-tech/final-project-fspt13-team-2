@@ -7,6 +7,7 @@ import axios from "axios";
 
 const HOSTNAME = "http://localhost:5050"
 
+
 export default function HomePage() {
     const [comments, setComments]= useState([]);
     const getPosts = async () => {
@@ -49,11 +50,11 @@ export default function HomePage() {
         <div>
             <HeroHeader/>
         </div>
-
-        <div>
-            <NavBar/>
-        </div>
         
+        <div>
+            <Header/>
+        </div>
+
         <div>
             <CommentsDisplay 
               comments={comments}
