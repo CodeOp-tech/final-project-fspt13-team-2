@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import axios from 'axios';
+import { useNavigate } from "react-router-dom";
 
 const HOSTNAME = "http://localhost:5050"
 
@@ -10,6 +11,7 @@ export default function UsersLoginPage() {
     password: ""
   })
 
+  const navigate = useNavigate();
   const {email, password} = credentials;
 
   const handleChange = (e) => {
@@ -25,8 +27,14 @@ export default function UsersLoginPage() {
       });
     
       //store it locally
-      localStorage.setItem("token", data.token);
-      console.log(data.message, data.token);
+      
+
+      if (data.message === "Login successful") {
+        localStorage.setItem("token", data.token);
+        navigate("/")
+      } else {
+        alert(data.message)
+      }
     } catch (error) {
       console.log(error)
     }

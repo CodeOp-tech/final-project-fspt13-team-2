@@ -1,5 +1,8 @@
 import { useState } from "react";
 import axios from 'axios';
+import { useNavigate } from "react-router-dom";
+
+
 
 const HOSTNAME = "http://localhost:5050"
 
@@ -10,6 +13,8 @@ export default function UsersRegisterPage() {
         password: ""
       })
     
+      const navigate = useNavigate();
+
       const {nick, email, password} = credentials;
     
       const handleChange = (e) => {
@@ -25,8 +30,11 @@ export default function UsersRegisterPage() {
           });
         
           //store it locally
-          localStorage.setItem("token", data.token);
-          console.log(data.message, data.token);
+          // localStorage.setItem("token", data.token);
+          console.log(data);
+          alert(data.message);
+          navigate("/login");
+          
         } catch (error) {
           console.log(error)
         }

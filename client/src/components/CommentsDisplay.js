@@ -7,13 +7,13 @@ export default function CommentsDisplay({ comments, onWow, onMeh }) {
         {comments.map((comment) => (
           <CommentsCard 
           key={comment.id} 
-          comment={comment.comment} 
-          timestamp={comment.timestamp}
-          wowCount={comment.wowCount}
-          mehCount={comment.mehCount}
-          onWow={() => onWow(comment)}
-          onMeh={() => onMeh(comment)}
-          imageUrl={comment.imageUrl}
+          comment={comment.content} 
+          timestamp={comment.created_date}
+          // wowCount={comment.wowCount}
+          // mehCount={comment.mehCount}
+          // onWow={() => onWow(comment)}
+          // onMeh={() => onMeh(comment)}
+          imageUrl={comment.image}
           /> 
         ))}
       </div>
