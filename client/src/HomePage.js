@@ -1,7 +1,7 @@
 import { useState } from 'react';
-import NavBar from './components/NavBar';
 import CommentsDisplay from './components/CommentsDisplay';
 import HeroHeader from './components/HeroHeader.js';
+import Header from './components/Header';
 
 export default function HomePage() {
     const [comments, setComments]= useState([
@@ -61,11 +61,11 @@ export default function HomePage() {
         <div>
             <HeroHeader/>
         </div>
-
-        <div>
-            <NavBar/>
-        </div>
         
+        <div>
+            <Header/>
+        </div>
+
         <div>
             <CommentsDisplay 
             comments={comments}

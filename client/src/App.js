@@ -15,7 +15,7 @@ import { Theme } from 'react-daisyui';
 function App() {
   return (
     <div className="container mx-auto p-8 m-10 bg-none">
-    <Theme dataTheme="cmyk">
+      <Theme dataTheme="cmyk">
 
     <BrowserRouter>
     <Routes>
