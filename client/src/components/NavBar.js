@@ -2,8 +2,6 @@ import { Link } from 'react-router-dom'
 import { useEffect, useState } from "react";
 import jwt_decode from "jwt-decode";
 
-
-
 export default function NavBar (){
   
   const [loggedUser, setLoggedUser] = useState(null)
