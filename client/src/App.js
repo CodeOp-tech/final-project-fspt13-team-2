@@ -11,6 +11,7 @@ import PrivateRoute from './PrivateRoute';
 import UsersRegisterPage from './UsersRegisterPage';
 import CommentCreationPage from './CommentCreationPage';
 import { Theme } from 'react-daisyui';
+import Form from '../src/components/Form'
 
 function App() {
   return (
@@ -20,7 +21,7 @@ function App() {
     <BrowserRouter>
     <Routes>
       <Route path="/" element={<HomePage />} />
-      <Route path="/add" element={<CommentCreationPage />} />
+      <Route path="/add" element={<Form />} />
       <Route path="/register" element={<UsersRegisterPage />} />
       <Route path="/login" element={<UsersLoginPage />} />
       <Route path="/private" element={

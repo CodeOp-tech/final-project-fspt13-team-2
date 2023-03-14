@@ -25,6 +25,6 @@ INSERT INTO users (nick, email, password) VALUES('john89', "johndoe@gmail.com", 
 CREATE TABLE votes (
   id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
   post_id INT NOT NULL,
-  user_id INT NOT NULL
-  wow TINYINT NOT NULL,
+  user_id INT NOT NULL,
+  wow TINYINT NOT NULL
 );
