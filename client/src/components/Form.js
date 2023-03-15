@@ -34,7 +34,7 @@ function Form() {
     // Clear the comment and category values
     setComment('');
     setImageUrl('');
-    navigate("/")
+    navigate("/posts")
   };
 
   // Define a function to handle changes to the comment input
