@@ -1,4 +1,4 @@
-export default function CommentsCard({ id, comment, wowCount, mehCount, imageUrl, timestamp, onWow, onMeh }) {
+export default function CommentsCard({ comment, wowCount, mehCount, imageUrl, timestamp, onWow, onMeh }) {
     return (
         
         <div className="card card-body w-300 bg-base-100 shadow-xl p-6 my-8">

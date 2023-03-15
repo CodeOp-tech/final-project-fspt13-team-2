@@ -20,35 +20,41 @@ export default function NavBar (){
   const handleLogout = () => {
     localStorage.removeItem("token")
     setLoggedUser(null)
-    navigate("/")
+    navigate("/posts")
   } 
     return (
       <>
-      <div className="inline-flex flex-row p-8">
+      <div className="navbar bg-base-100">
 
-          <div className="navbar bg-base-100">
-            {loggedUser ? <div>{loggedUser.nick}</div> :
+          <div>
+            {loggedUser ? <div className="card-title">{loggedUser.nick}</div> :
               <a className="btn btn-ghost normal-case text-base">
                 <Link to="/login">
-                  Log in
+                  Login
                 </Link>
               </a>
             }
           </div>
-          <div className="navbar bg-base-100">
+
+          <div>
             <a className="btn btn-ghost normal-case text-base">
               <Link to={loggedUser ? "/add" : "/login"}>
-                Add a new topic
+                Share something W O W 
              </Link>
             
             </a>
           </div>
         <div>
-        {loggedUser ? <button className="btn gap-2" onClick={handleLogout}>
+
+        <div>
+          {loggedUser ? 
+          <button className="btn btn-ghost normal-case text-base" onClick={handleLogout}>
                       Logout
           </button> : null
-        }
+          }
         </div>
+
+      </div>
     </div>  
     </>
     )

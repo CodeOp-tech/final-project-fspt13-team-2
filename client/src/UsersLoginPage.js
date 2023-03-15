@@ -31,7 +31,7 @@ export default function UsersLoginPage() {
 
       if (data.message === "Login successful") {
         localStorage.setItem("token", data.token);
-        navigate("/")
+        navigate("/posts")
       } else {
         alert(data.message)
       }
