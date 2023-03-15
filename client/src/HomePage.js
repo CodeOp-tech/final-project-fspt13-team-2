@@ -1,12 +1,14 @@
+
 import { useState, useEffect } from 'react';
-import NavBar from './components/NavBar';
 import CommentsDisplay from './components/CommentsDisplay';
 import HeroHeader from './components/HeroHeader.js';
 import axios from "axios";
 import CommentsCard from './components/CommentsCard';
 import jwt_decode from "jwt-decode";
 
+
 const HOSTNAME = "http://localhost:5050"
+
 
 export default function HomePage() {
     const [comments, setComments]= useState([]);
@@ -75,12 +77,11 @@ export default function HomePage() {
         <div>
             <HeroHeader/>
         </div>
-
-        <div>
-            <NavBar/>
-        </div>
+        
+     
         
         {/* <div>
+
             <CommentsDisplay 
               comments={comments}
               onWow={() => handleVote(true)}

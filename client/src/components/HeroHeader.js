@@ -1,25 +1,20 @@
 import React from 'react';
-import logo from './WowOrMeh.jpeg';
+import NavBar from './NavBar'
 import './HeroHeader.css'
+import { Link } from 'react-router-dom';
 
 function HeroHeader() {
   return (
     <nav className="navbar">
-      <div className="navbar-logo">
-        <img src={logo} alt="Logo" />
-        <span>WowOrMeh</span>
+      <Link to="/">
+        <span>
+        <img width="250" src="https://iili.io/HXehR5l.png" alt="Logo" />
+        </span>
+      </Link>
+
+      <div>
+        <NavBar />
       </div>
-      <input type="checkbox" id="navbar-toggle" className="navbar-toggle" />
-      <label htmlFor="navbar-toggle" className="navbar-toggle-label">
-        <span></span>
-        <span></span>
-        <span></span>
-      </label>
-      <ul className="navbar-menu">
-        <li><a href="#">Home</a></li>
-        <li><a href="#">About</a></li>
-        <li><a href="#">Contact</a></li>
-      </ul>
     </nav>
   );
 }
