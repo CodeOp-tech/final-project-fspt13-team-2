@@ -1,14 +1,12 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { v4 as uuid } from 'uuid';
-import jwt_decode from "jwt-decode";
 import { useNavigate } from "react-router-dom";
+import jwt_decode from "jwt-decode";
 import axios from "axios";
 
 const HOSTNAME = "http://localhost:5050"
 
-function Form({ onAdd }) {
-  // Declare state variables for the comment 
+function Form() {
   const [comment, setComment] = useState('');
   const [imageUrl, setImageUrl] = useState('');
   const [formSubmitionStatus, setFormSubmitionStatus] = useState('notSubmitted')
@@ -45,7 +43,7 @@ function Form({ onAdd }) {
     setComment(event.target.value);
   };
 
-  // Render the CommentForm component
+ 
   return (
     <div className="flex justify-center m-16">
 

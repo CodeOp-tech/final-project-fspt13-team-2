@@ -2,8 +2,6 @@ import { useState } from "react";
 import axios from 'axios';
 import { useNavigate } from "react-router-dom";
 
-
-
 const HOSTNAME = "http://localhost:5050"
 
 export default function UsersRegisterPage() {
