@@ -6,6 +6,7 @@ import axios from "axios";
 import CommentsCard from './components/CommentsCard';
 import jwt_decode from "jwt-decode";
 
+
 const HOSTNAME = "http://localhost:5050"
 
 
@@ -76,9 +77,10 @@ export default function HomePage() {
         <div>
             <HeroHeader/>
         </div>
-
         
+
         {/* <div>
+>>>>>>>>> Temporary merge branch 2
             <CommentsDisplay 
               comments={comments}
               onWow={() => handleVote(true)}
