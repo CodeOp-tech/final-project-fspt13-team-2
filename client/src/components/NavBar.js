@@ -1,23 +1,26 @@
 import { Link } from 'react-router-dom'
 import { useEffect, useState } from "react";
 import jwt_decode from "jwt-decode";
+import { useNavigate } from "react-router-dom";
 
 export default function NavBar (){
   
+  const navigate = useNavigate();
   const [loggedUser, setLoggedUser] = useState(null)
 
   useEffect(() => {
     const token = localStorage.getItem("token");
-    console.log(token)
-   
     if(token) {
       const decoded = jwt_decode(token);
       setLoggedUser(decoded)
     }
-   
-
   },[])
-
+  
+  const handleLogout = () => {
+    localStorage.removeItem("token")
+    setLoggedUser(null)
+    navigate("/")
+  } 
     return (
       <>
       <div className="inline-flex flex-row p-8">
@@ -39,7 +42,12 @@ export default function NavBar (){
             
             </a>
           </div>
-
+        <div>
+        {loggedUser ? <button className="btn gap-2" onClick={handleLogout}>
+                      Logout
+          </button> : null
+        }
+        </div>
     </div>  
     </>
     )

@@ -4,7 +4,7 @@ const db = require("../model/helper");
 
 /* GET posts listing. */
 router.get('/', function(req, res, next) {
-  db("SELECT * FROM posts;")
+  db("SELECT posts.id, posts.content, posts.user_id, posts.created_date, posts.image,COUNT(CASE WHEN votes.wow = 1 THEN 1 END) AS wow, COUNT(CASE WHEN votes.wow = 0 THEN 1 END) AS meh FROM posts LEFT JOIN votes ON posts.id = votes.post_id GROUP BY posts.id;")
     .then(results => {
       res.send(results.data);
     })
@@ -38,10 +38,10 @@ router.post("/create", async (req, res) => {
   }
 });
 
-/* COUNT number of wow for each post. */
-router.get('/wow', function(req, res, next) {
-  db("SELECT posts.id, posts.content, posts.created_date, posts.image, SUM(CASE WHEN votes.wow = true THEN 1 ELSE 0 END) AS wow, SUM(CASE WHEN votes.wow = false THEN 1 ELSE 0 END) AS meh FROM posts LEFT JOIN votes ON posts.id = votes.post_id WHERE votes.wow = true GROUP BY posts.id ;")
-  // db("SELECT posts.id, COUNT(CASE WHEN votes.wow = true THEN 1 END) AS wow_count, COUNT(CASE WHEN votes.wow = false 1 END) AS meh_count FROM posts LEFT JOIN votes ON posts.id = votes.post_id GROUP BY posts.id;")
+/* GET posts and counted wows and mehs */
+router.get('/votes', function(req, res, next) {
+  // db("SELECT posts.id, posts.content, posts.created_date, posts.image, SUM(CASE WHEN votes.wow = true THEN 1 ELSE 0 END) AS wow, SUM(CASE WHEN votes.wow = false THEN 1 ELSE 0 END) AS meh FROM posts LEFT JOIN votes ON posts.id = votes.post_id WHERE votes.wow = true GROUP BY posts.id ;")
+  db("SELECT posts.id AS post_id, posts.content AS post_content, COUNT(CASE WHEN votes.wow = 1 THEN 1 END) AS num_wow_true, COUNT(CASE WHEN votes.wow = 0 THEN 1 END) AS num_wow_false FROM posts LEFT JOIN votes ON posts.id = votes.post_id GROUP BY posts.id;")
     .then(results => {
       res.send(results.data);
     })
