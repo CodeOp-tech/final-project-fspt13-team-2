@@ -77,9 +77,10 @@ export default function HomePage() {
         <div>
             <HeroHeader/>
         </div>
-
         
+
         {/* <div>
+>>>>>>>>> Temporary merge branch 2
             <CommentsDisplay 
               comments={comments}
               onWow={() => handleVote(true)}
