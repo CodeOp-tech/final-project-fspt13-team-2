@@ -9,6 +9,7 @@ export default function CommentsDisplay({ comments, loggedUser, handleVote }) {
         key={comment.id}
         id={comment.id} 
         comment={comment.content} 
+        nick={comment.nick}
         timestamp={comment.created_date}
         wowCount={comment.wow}
         mehCount={comment.meh}
